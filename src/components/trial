@@ -1,0 +1,100 @@
+import "./projectStyle.css"; import viz from "../assets/viz.jpg"; import thali
+from "../assets/techgirl.jpg"; import ImgComponent from "./imgComponent"; import
+ProjectBtn from "./projectButton"; import ViewProject from "./analysis"; const
+Project = () => { return (
+<div className=" projectContainer " id="projects">
+  <div className="projectHeading">
+    <h1>Project</h1>
+  </div>
+  <div className="projectwrapper">
+    <div className="projectContent">
+      <h2>Cyclist Bike Share Analysis</h2>
+      <p>
+        Converting Casual Riders to Members <br />
+        Through Data-Driven Insights
+      </p>
+      <div className="projectSkills">
+        <button>SQL</button>
+        <button>Tableau</button>
+        <button>Google BigQuery</button> <button>Data Visualisation</button>
+        <button>Statistical Analysis</button>
+      </div>
+
+      <p>
+        Analyzed 5.6M+ bike share trips across 12 months to identify behaviorial
+        differences between casual riders and annual members. Developed
+        data-driven marketing strategies to convert casual riders into members,
+        focusing on seasonal patterns,geographic clustering, and usage
+        behaviours.
+      </p>
+      <div>
+        <button>
+          <span>5.6M+</span> <br />
+          Trips Analyzed
+        </button>
+        <button>
+          692 <br />
+          stations covered
+        </button>
+        <button>
+          {" "} 92% <br />
+          Longer Trips
+        </button>
+        <button>
+          70% <br />
+          Data Retention
+        </button>
+      </div>
+      <p>
+        <strong> Key Metrics:</strong>
+        <li>Analyzed 5.6M+ rides across 692 stations</li>
+        <li>Identified 64% member vs 36% casual rider split</li>
+        <li>Discovered 92% longer trip duration for casual riders</li>
+        <li>Achieved 70% data retention after quality control</li>
+      </p>
+      <img src="viz" alt="" />
+      <p>
+        <li>
+          <strong>Business Impact:</strong> Recommended targeted weekend
+          campaigns and seasonal promotions with projected 5% conversion rate
+          improvement
+        </li>
+        <li>
+          <strong>Technical Achievement:</strong> Processed 12 monthly datasets
+          using advanced SQL queries and statistical analysis
+        </li>
+        <li>
+          <strong>Key Insight:</strong> Revealed distinct commuter vs leisure
+          usage patterns driving strategic recommendations
+        </li>
+      </p>
+      <ViewProject
+        href="https://github.com/ThalithaThomas/Cyclistic_Bikeshare_Case_Study.git"
+      />
+    </div>
+  </div>
+
+  <div className="projectwrapper">
+    <div className="projectContent">
+      <h2>Personal website</h2>
+      <div className="projectSkills">
+        <button>CSS</button>
+        <button>React js</button>
+        <button>javascript</button>
+      </div>
+      <p>
+        A fully functional professional portfolio website built using React.js,
+        CSS, and JavaScript. This modern single-page application showcases my
+        skills, projects, and professional background.
+      </p>
+      <ProjectBtn href="thalithathomas.github.io/Thalitha-Portfolio" />
+    </div>
+    <div className="image-wrapper">
+      <ImgComponent
+        image="{thali}"
+        href="https://github.com/ThalithaThomas/Thalitha-Portfolio.git"
+      />
+    </div>
+  </div>
+</div>
+); }; export default Project;

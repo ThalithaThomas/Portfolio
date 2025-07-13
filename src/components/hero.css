@@ -1,0 +1,467 @@
+/* ==========================================================================
+   GLOBAL STYLES & VARIABLES
+   ========================================================================== */
+
+:root {
+  /* Color variables */
+  --primary-color: #ed6955;
+  --background-color: rgb(18, 30, 39);
+  --text-color: #ffffff;
+
+  /* Spacing variables */
+  --section-padding: 4rem;
+
+  /* Font sizes */
+  --heading-large: 3rem;
+  --heading-medium: 2.5rem;
+  --heading-small: 2rem;
+  --text-regular: 1.4rem;
+  --text-small: 1.2rem;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Your-Font-Family", sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   HERO SECTION - MAIN CONTAINER
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  background-color: rgb(18, 30, 39);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   BACKGROUND ANIMATIONS & EFFECTS
+   ========================================================================== */
+/* Background gradient */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 30% 40%,
+    rgba(237, 105, 85, 0.05) 0%,
+    rgba(18, 30, 39, 0) 50%
+  );
+  z-index: 0;
+}
+
+/* Float animation keyframes */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-35px) rotate(0deg);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-20px) rotate(-5deg);
+    opacity: 0.7;
+  }
+}
+
+/* ==========================================================================
+   HERO CONTENT SECTION
+   ========================================================================== */
+.hero-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 9rem 2rem 9rem;
+  text-align: left;
+  animation: fadeIn 1s ease-out;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   HEADINGS & TEXT STYLES
+   ========================================================================== */
+.hero-section h1 {
+  font-size: 3rem;
+  color: white;
+  font-weight: 450;
+  opacity: 0;
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  margin-bottom: 2rem;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Highlight styling */
+.highlight {
+  position: relative;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.highlight span {
+  position: relative;
+  z-index: 2;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1.3rem;
+  background-color: #ed6955;
+  bottom: 0.1em;
+  left: 0;
+  z-index: 1;
+  animation: highlightWidth 0.6s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes highlightWidth {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Paragraph styling */
+.hero-section p {
+  font-size: 1.4rem;
+  margin: 2rem 0;
+  color: white;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.9s;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   ========================================================================== */
+/* Resume download button */
+.dowloadResume {
+  cursor: pointer;
+  padding: 10px 0;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 1.5s;
+  margin-top: 1rem;
+}
+
+.dowloadResume a {
+  color: #ed6955;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.dowloadResume a:hover {
+  transform: translateY(-3px);
+}
+
+.DownloadAlt {
+  color: #ed6955;
+  font-size: 18px;
+  width: 1rem;
+  height: 1.5rem;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dowloadResume:hover .DownloadAlt {
+  transform: translateY(2px);
+}
+
+/* Fix for button inside dowloadResume */
+.dowloadResume button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dowloadResume button a {
+  color: #ed6955;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Contact icons */
+.contactIcons {
+  color: rgb(18, 30, 39);
+  display: flex;
+  margin: 1rem 0;
+  animation: slideIn 0.8s ease-out forwards;
+  animation-delay: 1.2s;
+  opacity: 0;
+  list-style: none;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contactIcons li {
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.contactIcons li:hover {
+  transform: translateY(-5px);
+}
+
+.contactIcons li a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactIcon {
+  width: 32px;
+  height: 32px;
+  color: rgba(237, 105, 85, 0.8);
+  transition: color 0.3s ease;
+}
+
+.contactIcons li:hover .contactIcon {
+  color: rgba(237, 105, 85, 1);
+}
+
+.container {
+  /* Common container styling */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.btn {
+  /* Common button styling */
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES - LARGE SCREENS (1200px - 1445px)
+   ========================================================================== */
+@media (max-width: 1445px) {
+  .hero-section {
+    padding: 2rem 6rem;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES - MEDIUM SCREENS (769px - 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 2rem 3rem;
+  }
+
+  .hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1.6rem;
+    margin: 1.5rem 0;
+  }
+
+  .dowloadResume a {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  .DownloadAlt {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contactIcons {
+    margin: 1.5rem 0;
+  }
+
+  .contactIcons li {
+    margin-right: 2rem;
+  }
+
+  .contactIcon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES - TABLETS (481px - 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 2rem;
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-section p {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .dowloadResume a {
+    font-size: 1.3rem;
+  }
+
+  .DownloadAlt {
+    width: 22px;
+    height: 22px;
+  }
+
+  .contactIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .contactIcons li {
+    margin-right: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES - MOBILE DEVICES (320px - 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-section p {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+  }
+
+  .dowloadResume a {
+    font-size: 1.2rem;
+  }
+
+  .DownloadAlt {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contactIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .contactIcons li {
+    margin-right: 1.2rem;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES - VERY SMALL MOBILE (under 320px)
+   ========================================================================== */
+@media (max-width: 320px) {
+  .hero-section {
+    padding: 1rem 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+
+  .dowloadResume a {
+    font-size: 1.1rem;
+  }
+
+  .contactIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .contactIcons li {
+    margin-right: 1rem;
+  }
+}

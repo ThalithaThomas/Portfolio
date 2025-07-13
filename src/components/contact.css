@@ -1,0 +1,158 @@
+.contact-container {
+  width: 100%;
+  max-width: 100%;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  margin: 4rem auto;
+}
+
+.contact {
+  border-radius: 0.9375rem; /* 15px to rem */
+  width: 100%;
+  max-width: 43.75rem; /* 700px to rem */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact h1 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: rgb(18, 30, 39);
+}
+
+.contact p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: rgb(18, 30, 39);
+}
+
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.contact-container form input {
+  margin-bottom: 1rem;
+  background-color: rgb(228, 225, 225);
+  padding: 0.75rem; /* 12px to rem */
+  border: none;
+  outline: none;
+  border-radius: 0.5rem; /* 8px to rem */
+  width: 100%;
+  max-width: 31.25rem; /* 500px to rem */
+  text-align: left;
+  color: gray;
+}
+
+.contact-container form input:last-of-type {
+  line-height: normal;
+  text-align: left;
+  height: 7.5rem; /* 120px to rem */
+  padding: 0.75rem 1.2rem; /* 12px 19px to rem */
+}
+
+.facontactIcon {
+  width: 1.875rem; /* 30px to rem */
+  height: 1.875rem; /* 30px to rem */
+  color: rgb(18, 30, 39);
+}
+
+.contact button {
+  padding: 0.5rem 2rem;
+  font-size: 1.125rem; /* 18px to rem */
+  background-color: #ed6955;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.contact-icons {
+  color: rgb(18, 30, 39);
+  display: flex;
+  margin-top: 1rem;
+}
+
+.contact-icons li {
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 48.75em) {
+  /* 778px to em */
+  .contact-container {
+    margin-top: 0;
+  }
+  br {
+    display: block;
+  }
+}
+
+@media (max-width: 37em) {
+  /* 425px to em */
+  .contact-container {
+    padding: 0 1rem;
+  }
+
+  .contact {
+    max-width: 100%;
+  }
+
+  .contact-container form input {
+    margin-left: 0.3rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-container form input:last-of-type {
+    padding: 0.75rem 1.2rem;
+    height: 7.5rem;
+  }
+
+  br {
+    display: block;
+  }
+
+  .contact h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact p {
+    font-size: 1.1rem;
+  }
+
+  .contact button {
+    padding: 0.5rem 2.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 12.5rem; /* 200px to rem */
+    margin: 0 auto; /* Center the button instead of using margin-left */
+  }
+
+  .contact-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contact-icons li {
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}

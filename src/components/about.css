@@ -1,0 +1,81 @@
+.about-container {
+  margin: 3rem 0;
+  background-color: white;
+}
+.about-section {
+  padding: 3rem 4rem;
+  text-align: left;
+}
+.cvDoc {
+  color: #ed6955;
+}
+.about-p a {
+  color: #e05e2b;
+  font-size: 1.5rem;
+}
+.about-p {
+  max-width: 75rem;
+  margin-right: 2rem;
+}
+.about-p h1 {
+  color: rgb(18, 30, 39);
+  font-size: 50px;
+}
+.about-p h4 {
+  margin: 2rem 0 1rem 0;
+  font-size: 33px;
+  font-weight: 600;
+  color: rgb(18, 30, 39);
+}
+.about-p p {
+  color: rgb(18, 30, 39);
+  font-size: 1.3rem;
+}
+strong {
+  font-weight: 600;
+}
+
+@media (max-width: 778px) {
+  .about-section {
+    padding: 3rem 1rem;
+
+    border-radius: 1rem;
+  }
+  .about-p h1 {
+    font-size: 3rem;
+  }
+  .about-section img {
+    display: none;
+  }
+  .about-p h4 {
+    font-size: 2.1rem;
+  }
+  .about-p p {
+    font-size: 1.3rem;
+  }
+  .about-p {
+    padding: 1rem 3rem;
+  }
+  .about-p h1 {
+    font-size: 3rem;
+  }
+  .about-p h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 475px) {
+  .about-p h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .about-p p {
+    font-size: 1.6rem;
+  }
+  .about-p {
+    padding: 1rem 1rem;
+  }
+  .about-p h4 {
+    font-size: 2.1rem;
+  }
+}
