@@ -231,11 +231,22 @@ const Project = () => {
       borderRadius: "18px",
       objectFit: "contain",
     },
+
     metricsGrid: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
       gap: "15px",
       margin: "2rem 0",
+      ...(isTablet && {
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gap: "20px",
+        margin: "2.5rem 0",
+      }),
+      ...(isMobile && {
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gap: "15px",
+        margin: "2rem 0",
+      }),
     },
     metricCard: {
       textAlign: "center",

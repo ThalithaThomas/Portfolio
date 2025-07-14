@@ -6,12 +6,12 @@
 }
 
 .skillsHeading h1 {
-  font-size: 33px;
-  font-weight: 700;
+  font-size: 3rem; /* Changed from 33px to match Project component */
+  font-weight: 570; /* Changed from 700 to match Project component */
   margin: 3rem 10rem;
-
   color: rgb(18, 30, 39);
 }
+
 .skills-title-highlight {
   position: relative;
   display: inline-block;
@@ -22,12 +22,13 @@
   content: "";
   position: absolute;
   width: 100%;
-  height: 0.8rem;
-  background-color: #d54e3a;
+  height: 1.2rem; /* Changed from 0.8rem to match Project component */
+  background-color: #ed6955; /* Changed from #d54e3a to match Project component */
   left: 0;
   bottom: 0.26em;
   z-index: -1;
 }
+
 .skillsContainer img {
   width: min(300px);
   height: max(380px);
@@ -50,19 +51,18 @@
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 5px; /* Changed from 3px to match Project component */
   justify-content: flex-start;
-  margin-bottom: 1rem;
+  margin: 1rem 0; /* Changed from margin-bottom: 1rem to match Project component */
 }
 
 .skills button {
   background-color: rgb(18, 30, 39);
   margin: 2px;
-  padding: 4px 20px;
+  padding: 3px 12px; /* Changed from 4px 20px to match Project component */
   cursor: pointer;
   color: white;
   border: none;
-
   transition: background-color 0.2s ease;
 }
 
@@ -78,12 +78,12 @@
 .aboutP h4 {
   color: rgb(18, 30, 39);
   margin-bottom: 6px;
-  font-size: 23px;
-  font-weight: 750;
+  font-size: 1.8rem; /* Changed from 23px to match Project component subtitle */
+  font-weight: 700; /* Matches Project component subtitle */
 }
 
 .aboutP a {
-  font-size: 20px;
+  font-size: 1.2rem; /* Changed from 20px to match Project component description */
   font-weight: 500;
   color: #ed6955;
   text-decoration: none;
@@ -92,10 +92,11 @@
 
 .aboutP p {
   color: rgb(18, 30, 39);
-  font-size: 20px;
-  font-weight: 340;
+  font-size: 1.2rem; /* Changed from 20px to match Project component description */
+  font-weight: 340; /* Matches Project component description */
   margin-bottom: 1rem;
 }
+
 @media (max-width: 1024px) {
   .skillsWrapper {
     margin: 4rem 0 0 4rem;
@@ -103,6 +104,16 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+
+  .skillsHeading h1 {
+    font-size: 2.3rem; /* Match Project component tablet size */
+    margin: 4rem 0 3rem 0;
+    margin-left: 4rem;
+  }
+
+  .skills-title-highlight::after {
+    bottom: 42px; /* Match Project component tablet positioning */
   }
 
   .skillsContainer img {
@@ -118,12 +129,13 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
+    gap: 7px; /* Match Project component tablet gap */
   }
 
   .skills button {
     background-color: rgb(18, 30, 39);
     margin: 2px;
-    padding: 4px 25px;
+    padding: 5px 15px; /* Match Project component tablet padding */
     font-size: 1.2rem;
   }
 
@@ -134,7 +146,16 @@
 
   .aboutP {
     margin-top: 3rem;
-    font-size: 1.3rem;
+    text-align: left;
+  }
+
+  .aboutP h4 {
+    font-size: 2.3rem; /* Match Project component tablet title size */
+    text-align: left;
+  }
+
+  .aboutP p {
+    font-size: 1.3rem; /* Match Project component tablet description */
     text-align: left;
   }
 
@@ -143,15 +164,6 @@
     font-size: 1.3rem;
     display: inline-block;
     text-align: left;
-  }
-
-  .aboutP h4 {
-    text-align: left;
-  }
-
-  .aboutP p {
-    text-align: left;
-    font-size: 1.3rem;
   }
 }
 
@@ -164,14 +176,21 @@
 
   .aboutP p {
     margin-top: 1rem;
-    font-size: 1.7rem;
+    font-size: 1.7rem; /* Match Project component mobile description */
   }
 }
+
 @media (max-width: 425px) {
   .skillsWrapper {
     margin: 4rem 0 0 0;
     justify-content: center;
     align-items: center;
+  }
+
+  .skillsHeading h1 {
+    font-size: 2rem; /* Match Project component mobile size */
+    margin: 3rem 0 2rem 0;
+    margin-left: 2rem;
   }
 
   .skillsContainer img {
@@ -197,6 +216,11 @@
 
   .aboutP {
     margin-top: 3rem;
+    text-align: center;
+  }
+
+  .aboutP h4 {
+    margin-top: 3rem;
     font-size: 1.7rem;
     text-align: center;
   }
@@ -204,12 +228,6 @@
   .aboutP p {
     margin-top: 1rem;
     font-size: 1.6rem;
-  }
-
-  .aboutP h4 {
-    margin-top: 3rem;
-    font-size: 1.7rem;
-    text-align: center;
   }
 
   .aboutP a {

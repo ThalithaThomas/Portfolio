@@ -41,11 +41,13 @@ const Hero = () => {
 
         <p>
           I turn data into insights that help businesses make better decisions,
-          and I&apos;m a firm believer in lifelong learning.
+          and <br /> I&apos;m a firm believer in lifelong learning.
         </p>
 
         <div className="dowloadResume">
-          <a href="/Thalitha-Portfolio/thalitha.pdf">Resume</a>
+          <a href="/thalitha.pdf" download>
+            Resume
+          </a>
         </div>
       </div>
     </div>
