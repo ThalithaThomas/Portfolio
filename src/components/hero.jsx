@@ -45,7 +45,7 @@ const Hero = () => {
         </p>
 
         <div className="dowloadResume">
-          <a href="/thalitha.pdf" download="Thalitha_Resume.pdf">
+          <a href="/Portfolio/thalitha.pdf" download="Thalitha_Resume.pdf">
             Resume
           </a>
         </div>
