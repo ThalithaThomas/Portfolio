@@ -4,6 +4,7 @@ import { FaGithub, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
 
 const Contact = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isSmallMobile, setIsSmallMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [emailjsLoaded, setEmailjsLoaded] = useState(false);
   const [formData, setFormData] = useState({
@@ -15,8 +16,10 @@ const Contact = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 425);
-      setIsTablet(window.innerWidth > 425 && window.innerWidth <= 1024);
+      const width = window.innerWidth;
+      setIsSmallMobile(width <= 320);
+      setIsMobile(width <= 425 && width > 320);
+      setIsTablet(width > 425 && width <= 1024);
     };
 
     handleResize();
@@ -76,6 +79,10 @@ const Contact = () => {
       maxWidth: "100%",
       textAlign: "left",
       paddingBottom: "4rem",
+      overflowX: "hidden",
+      ...(isSmallMobile && {
+        paddingBottom: "3rem",
+      }),
     },
     contactHeading: {
       position: "relative",
@@ -86,6 +93,9 @@ const Contact = () => {
       }),
       ...(isMobile && {
         margin: "3rem 0 2rem 2rem",
+      }),
+      ...(isSmallMobile && {
+        margin: "2rem 0 1.5rem 1rem",
       }),
     },
     contactHeadingH1: {
@@ -103,6 +113,12 @@ const Contact = () => {
       }),
       ...(isMobile && {
         fontSize: "2rem",
+        maxWidth: "10rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "1.8rem",
+        maxWidth: "8rem",
+        marginBottom: "1.5rem",
       }),
     },
     contactHeadingAfter: {
@@ -116,6 +132,10 @@ const Contact = () => {
       ...(isTablet && {
         bottom: "42px",
       }),
+      ...(isSmallMobile && {
+        height: "1rem",
+        bottom: "0.6em",
+      }),
     },
     contactWrapper: {
       display: "flex",
@@ -124,6 +144,9 @@ const Contact = () => {
         flexDirection: "column",
         alignItems: "flex-start",
         width: "100%",
+      }),
+      ...(isSmallMobile && {
+        marginBottom: "3rem",
       }),
     },
     contactContent: {
@@ -139,6 +162,12 @@ const Contact = () => {
       }),
       ...(isMobile && {
         marginLeft: "2rem",
+        maxWidth: "90%",
+      }),
+      ...(isSmallMobile && {
+        marginLeft: "1rem",
+        marginRight: "1rem",
+        maxWidth: "calc(100% - 2rem)",
       }),
     },
     contactTitle: {
@@ -149,6 +178,14 @@ const Contact = () => {
       ...(isTablet && {
         fontSize: "2.3rem",
         marginBottom: "2.2rem",
+      }),
+      ...(isMobile && {
+        fontSize: "1.8rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "1.6rem",
+        marginBottom: "1.2rem",
+        lineHeight: "1.3",
       }),
     },
     contactDescription: {
@@ -161,7 +198,13 @@ const Contact = () => {
         fontSize: "1.3rem",
       }),
       ...(isMobile && {
-        fontSize: "1.7rem",
+        fontSize: "1.1rem",
+        marginBottom: "2rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "1rem",
+        marginBottom: "1.5rem",
+        lineHeight: "1.5",
       }),
     },
     formContainer: {
@@ -177,12 +220,21 @@ const Contact = () => {
       }),
       ...(isMobile && {
         padding: "20px",
+        marginBottom: "2rem",
+      }),
+      ...(isSmallMobile && {
+        padding: "15px",
+        borderRadius: "8px",
+        marginBottom: "1.5rem",
       }),
     },
     formDiv: {
       display: "flex",
       flexDirection: "column",
       gap: "20px",
+      ...(isSmallMobile && {
+        gap: "15px",
+      }),
     },
     inputField: {
       padding: "15px",
@@ -194,13 +246,20 @@ const Contact = () => {
       fontFamily: "inherit",
       transition: "border-color 0.3s ease",
       outline: "none",
+      width: "100%",
+      boxSizing: "border-box",
       ...(isTablet && {
         fontSize: "1.2rem",
         padding: "16px",
       }),
       ...(isMobile && {
-        fontSize: "1.3rem",
-        padding: "18px",
+        fontSize: "1rem",
+        padding: "14px",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "0.9rem",
+        padding: "12px",
+        borderRadius: "6px",
       }),
     },
     messageField: {
@@ -215,13 +274,22 @@ const Contact = () => {
       outline: "none",
       minHeight: "120px",
       resize: "vertical",
+      width: "100%",
+      boxSizing: "border-box",
       ...(isTablet && {
         fontSize: "1.2rem",
         padding: "16px",
       }),
       ...(isMobile && {
-        fontSize: "1.3rem",
-        padding: "18px",
+        fontSize: "1rem",
+        padding: "14px",
+        minHeight: "100px",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "0.9rem",
+        padding: "12px",
+        minHeight: "80px",
+        borderRadius: "6px",
       }),
     },
     submitButton: {
@@ -241,19 +309,36 @@ const Contact = () => {
         padding: "16px 32px",
       }),
       ...(isMobile && {
-        fontSize: "1.3rem",
-        padding: "18px 36px",
+        fontSize: "1rem",
+        padding: "14px 28px",
         alignSelf: "stretch",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "0.9rem",
+        padding: "12px 24px",
+        alignSelf: "stretch",
+        minWidth: "auto",
+        borderRadius: "6px",
       }),
     },
     socialSection: {
       marginTop: "3rem",
+      ...(isSmallMobile && {
+        marginTop: "2rem",
+      }),
     },
     socialTitle: {
       color: "rgb(18, 30, 39)",
       fontSize: "1.8rem",
       fontWeight: "700",
       marginBottom: "1.5rem",
+      ...(isMobile && {
+        fontSize: "1.6rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "1.4rem",
+        marginBottom: "1rem",
+      }),
     },
     socialIcons: {
       display: "flex",
@@ -264,6 +349,11 @@ const Contact = () => {
       ...(isMobile && {
         flexWrap: "wrap",
         gap: "15px",
+      }),
+      ...(isSmallMobile && {
+        flexWrap: "wrap",
+        gap: "12px",
+        justifyContent: "center",
       }),
     },
     socialIconItem: {
@@ -287,9 +377,14 @@ const Contact = () => {
         fontSize: "1.4rem",
       }),
       ...(isMobile && {
-        width: "60px",
-        height: "60px",
-        fontSize: "1.5rem",
+        width: "48px",
+        height: "48px",
+        fontSize: "1.2rem",
+      }),
+      ...(isSmallMobile && {
+        width: "44px",
+        height: "44px",
+        fontSize: "1.1rem",
       }),
     },
     contactInfo: {
@@ -303,6 +398,12 @@ const Contact = () => {
       }),
       ...(isMobile && {
         padding: "18px",
+        marginTop: "1.5rem",
+      }),
+      ...(isSmallMobile && {
+        padding: "15px",
+        borderRadius: "8px",
+        marginTop: "1rem",
       }),
     },
     contactInfoText: {
@@ -315,7 +416,11 @@ const Contact = () => {
         fontSize: "1.2rem",
       }),
       ...(isMobile && {
-        fontSize: "1.4rem",
+        fontSize: "1rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "0.9rem",
+        lineHeight: "1.5",
       }),
     },
     loadingIndicator: {
@@ -323,6 +428,10 @@ const Contact = () => {
       color: emailjsLoaded ? "#28a745" : "#ffc107",
       marginTop: "10px",
       fontWeight: "500",
+      ...(isSmallMobile && {
+        fontSize: "0.8rem",
+        marginTop: "8px",
+      }),
     },
   };
 

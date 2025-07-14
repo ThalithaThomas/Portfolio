@@ -70,12 +70,15 @@ ProjectBtn.propTypes = {
 
 const Project = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isSmallMobile, setIsSmallMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 425);
-      setIsTablet(window.innerWidth > 425 && window.innerWidth <= 1024);
+      const width = window.innerWidth;
+      setIsSmallMobile(width <= 320);
+      setIsMobile(width <= 425 && width > 320);
+      setIsTablet(width > 425 && width <= 1024);
     };
 
     handleResize();
@@ -89,6 +92,7 @@ const Project = () => {
       width: "100%",
       maxWidth: "100%",
       textAlign: "left",
+      overflowX: "hidden",
     },
     projectHeading: {
       position: "relative",
@@ -102,6 +106,10 @@ const Project = () => {
       ...(isMobile && {
         margin: "3rem 0 2rem 0",
         marginLeft: "2rem",
+      }),
+      ...(isSmallMobile && {
+        margin: "2rem 0 1.5rem 0",
+        marginLeft: "1rem",
       }),
     },
     projectHeadingH1: {
@@ -119,6 +127,12 @@ const Project = () => {
       }),
       ...(isMobile && {
         fontSize: "2rem",
+        maxWidth: "8rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "1.8rem",
+        maxWidth: "7rem",
+        marginBottom: "1.5rem",
       }),
     },
     projectHeadingAfter: {
@@ -131,6 +145,10 @@ const Project = () => {
       zIndex: 1,
       ...(isTablet && {
         bottom: "42px",
+      }),
+      ...(isSmallMobile && {
+        height: "1rem",
+        bottom: "0.2em",
       }),
     },
     projectWrapper: {
@@ -155,6 +173,12 @@ const Project = () => {
       }),
       ...(isMobile && {
         marginLeft: "2rem",
+        maxWidth: "90%",
+      }),
+      ...(isSmallMobile && {
+        marginLeft: "1rem",
+        marginRight: "1rem",
+        maxWidth: "calc(100% - 2rem)",
       }),
     },
     projectTitle: {
@@ -166,23 +190,39 @@ const Project = () => {
         fontSize: "2.3rem",
         marginBottom: "2.2rem",
       }),
+      ...(isMobile && {
+        fontSize: "1.8rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "1.6rem",
+        marginBottom: "1.2rem",
+        lineHeight: "1.3",
+      }),
     },
     projectSubtitle: {
       color: "rgb(18, 30, 39)",
       fontSize: "1.8rem",
       fontWeight: "700",
       marginBottom: "1rem",
+      ...(isSmallMobile && {
+        fontSize: "1.5rem",
+      }),
     },
     projectDescription: {
       fontSize: "1.2rem",
       color: "rgb(18, 30, 39)",
       marginBottom: "1rem",
       fontWeight: "340",
+      lineHeight: "1.6",
       ...(isTablet && {
         fontSize: "1.3rem",
       }),
       ...(isMobile && {
-        fontSize: "1.7rem",
+        fontSize: "1.1rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "1rem",
+        lineHeight: "1.5",
       }),
     },
     projectSkills: {
@@ -195,6 +235,10 @@ const Project = () => {
         gap: "7px",
         width: "100%",
       }),
+      ...(isSmallMobile && {
+        gap: "4px",
+        margin: "0.8rem 0",
+      }),
     },
     skillButton: {
       backgroundColor: "rgb(18, 30, 39)",
@@ -204,9 +248,19 @@ const Project = () => {
       color: "white",
       border: "none",
       transition: "background-color 0.2s ease",
+      fontSize: "0.9rem",
       ...(isTablet && {
         padding: "5px 15px",
         fontSize: "1.2rem",
+      }),
+      ...(isMobile && {
+        padding: "4px 10px",
+        fontSize: "0.85rem",
+      }),
+      ...(isSmallMobile && {
+        padding: "3px 8px",
+        fontSize: "0.8rem",
+        margin: "1px",
       }),
     },
     imageWrapper: {
@@ -220,9 +274,16 @@ const Project = () => {
         margin: "3rem 0 3rem 0",
       }),
       ...(isMobile && {
-        width: "350px",
+        width: "100%",
+        maxWidth: "350px",
         height: "auto",
         margin: "2rem 0 1rem 0",
+      }),
+      ...(isSmallMobile && {
+        width: "100%",
+        maxWidth: "280px",
+        height: "auto",
+        margin: "1.5rem 0 1rem 0",
       }),
     },
     projectImage: {
@@ -230,8 +291,10 @@ const Project = () => {
       height: "auto",
       borderRadius: "18px",
       objectFit: "contain",
+      ...(isSmallMobile && {
+        borderRadius: "12px",
+      }),
     },
-
     metricsGrid: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
@@ -247,6 +310,11 @@ const Project = () => {
         gap: "15px",
         margin: "2rem 0",
       }),
+      ...(isSmallMobile && {
+        gridTemplateColumns: "repeat(2, 1fr)",
+        gap: "10px",
+        margin: "1.5rem 0",
+      }),
     },
     metricCard: {
       textAlign: "center",
@@ -254,17 +322,28 @@ const Project = () => {
       background: "#f8f9fa",
       borderRadius: "8px",
       border: "1px solid #e9ecef",
+      ...(isSmallMobile && {
+        padding: "10px",
+        borderRadius: "6px",
+      }),
     },
     metricNumber: {
       fontSize: "1.5rem",
       fontWeight: "700",
       color: "#d54e3a",
       marginBottom: "5px",
+      ...(isSmallMobile && {
+        fontSize: "1.2rem",
+        marginBottom: "3px",
+      }),
     },
     metricLabel: {
       fontSize: "0.8rem",
       color: "#6c757d",
       fontWeight: "500",
+      ...(isSmallMobile && {
+        fontSize: "0.7rem",
+      }),
     },
     visualizationSection: {
       background: "#f8f9fa",
@@ -278,6 +357,12 @@ const Project = () => {
       }),
       ...(isMobile && {
         padding: "15px",
+        margin: "20px 0",
+      }),
+      ...(isSmallMobile && {
+        padding: "12px",
+        margin: "15px 0",
+        borderRadius: "8px",
       }),
     },
     vizTitle: {
@@ -286,6 +371,10 @@ const Project = () => {
       color: "rgb(18, 30, 39)",
       marginBottom: "20px",
       textAlign: "left",
+      ...(isSmallMobile && {
+        fontSize: "1.2rem",
+        marginBottom: "15px",
+      }),
     },
     insight: {
       background: "#e8f4f8",
@@ -293,12 +382,21 @@ const Project = () => {
       borderRadius: "8px",
       borderLeft: "4px solid #3498db",
       marginTop: "20px",
+      ...(isSmallMobile && {
+        padding: "15px",
+        borderRadius: "6px",
+        marginTop: "15px",
+      }),
     },
     insightText: {
       fontSize: "1rem",
       color: "rgb(18, 30, 39)",
       lineHeight: "1.6",
       margin: "0",
+      ...(isSmallMobile && {
+        fontSize: "0.9rem",
+        lineHeight: "1.5",
+      }),
     },
     recommendations: {
       padding: "30px 0",
@@ -309,6 +407,11 @@ const Project = () => {
       }),
       ...(isMobile && {
         padding: "15px 0",
+        margin: "20px 0",
+      }),
+      ...(isSmallMobile && {
+        padding: "12px 0",
+        margin: "15px 0",
       }),
     },
     recommendationsTitle: {
@@ -316,6 +419,10 @@ const Project = () => {
       fontSize: "1.8rem",
       fontWeight: "700",
       marginBottom: "2rem",
+      ...(isSmallMobile && {
+        fontSize: "1.5rem",
+        marginBottom: "1.5rem",
+      }),
     },
     recommendationGrid: {
       display: "grid",
@@ -324,6 +431,12 @@ const Project = () => {
       marginBottom: "3rem",
       ...(isMobile && {
         gridTemplateColumns: "1fr",
+        gap: "15px",
+      }),
+      ...(isSmallMobile && {
+        gridTemplateColumns: "1fr",
+        gap: "12px",
+        marginBottom: "2rem",
       }),
     },
     recommendationItem: {
@@ -333,12 +446,20 @@ const Project = () => {
       border: "1px solid #e9ecef",
       transition: "transform 0.2s ease, box-shadow 0.2s ease",
       cursor: "pointer",
+      ...(isSmallMobile && {
+        padding: "15px",
+        borderRadius: "8px",
+      }),
     },
     recommendationTitle: {
       fontWeight: "600",
       color: "rgb(18, 30, 39)",
       marginBottom: "12px",
       fontSize: "1.2rem",
+      ...(isSmallMobile && {
+        fontSize: "1.1rem",
+        marginBottom: "8px",
+      }),
     },
     recommendationText: {
       fontSize: "1.1rem",
@@ -349,7 +470,11 @@ const Project = () => {
         fontSize: "1.2rem",
       }),
       ...(isMobile && {
-        fontSize: "1.4rem",
+        fontSize: "1rem",
+      }),
+      ...(isSmallMobile && {
+        fontSize: "0.9rem",
+        lineHeight: "1.5",
       }),
     },
     buttonWrapper: {
@@ -364,7 +489,23 @@ const Project = () => {
         alignItems: "center",
         gap: "15px",
       }),
+      ...(isSmallMobile && {
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "12px",
+        marginTop: "2rem",
+      }),
     },
+  };
+
+  // Enhanced button styles for small mobile
+  const enhancedButtonStyle = {
+    ...styles.skillButton,
+    ...(isSmallMobile && {
+      minWidth: "auto",
+      fontSize: "0.9rem",
+      padding: "8px 16px",
+    }),
   };
 
   return (
